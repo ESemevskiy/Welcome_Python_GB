@@ -3,11 +3,11 @@
 проверки типа данных каждого элемента. Использовать функцию type() для проверки типа.
 Элементы списка можно не запрашивать у пользователя, а указать явно, в программе.
 """
-#
-# my_list = ['A', 2, 2.2, None, True, (1, 2.2), {"1": 2, 3: complex(3, 2)}, [3, 4]]
-#
-# for elem in my_list:
-#     print(f'Element {elem} - Type {type(elem)}')
+
+my_list = ['A', 2, 2.2, None, True, (1, 2.2), {"1": 2, 3: complex(3, 2)}, [3, 4]]
+
+for elem in my_list:
+    print(f'Element {elem} - Type {type(elem)}')
 
 """
 Для списка реализовать обмен значений соседних элементов. Значениями обмениваются
@@ -16,46 +16,46 @@
 input()
 """
 
-# elem_list = []
-#
-# while True:
-#     print("ВВедите число чтобы добавить в список")
-#     print("Напишите 'run' чтобы закончить")
-#
-#     elem = input("Число: ")
-#
-#     if elem == 'run':
-#         break #Выход из цикла ввода
-#
-#     if elem.isdigit():
-#         elem_list.append(elem)
-#
-#     else:
-#         print("Неправильный ввод, повторите")
-#         continue # Было введено неправильное значение, повторите ввод
-#
-# elem_list_len = len(elem_list)
-#
-# if elem_list_len == 0:
-#     print("Ваш список пуст")
-#
-# else:
-#
-#     eo = elem_list_len % 2 == 0
-#
-#     for idx, elem in enumerate(elem_list):
-#         if idx % 2 == 0:
-#             current_elem = elem_list[idx]
-#             if eo:
-#                 elem_list[idx], elem_list[idx + 1] = elem_list[idx + 1], elem_list[idx1]
-#             else:
-#                 if idx == elem_list_len - 1:
-#                     continue
-#                 else:
-#                     elem_list[idx], elem_list[idx + 1] = elem_list[idx + 1], elem_list[idx]
-#         else:
-#             continue
-#     print(elem_list)
+elem_list = []
+
+while True:
+    print("ВВедите число чтобы добавить в список")
+    print("Напишите 'run' чтобы закончить")
+
+    elem = input("Число: ")
+
+    if elem == 'run':
+        break #Выход из цикла ввода
+
+    if elem.isdigit():
+        elem_list.append(elem)
+
+    else:
+        print("Неправильный ввод, повторите")
+        continue # Было введено неправильное значение, повторите ввод
+
+elem_list_len = len(elem_list)
+
+if elem_list_len == 0:
+    print("Ваш список пуст")
+
+else:
+
+    eo = elem_list_len % 2 == 0
+
+    for idx, elem in enumerate(elem_list):
+        if idx % 2 == 0:
+            current_elem = elem_list[idx]
+            if eo:
+                elem_list[idx], elem_list[idx + 1] = elem_list[idx + 1], elem_list[idx]
+            else:
+                if idx == elem_list_len - 1:
+                    continue
+                else:
+                    elem_list[idx], elem_list[idx + 1] = elem_list[idx + 1], elem_list[idx]
+        else:
+            continue
+    print(elem_list)
 
 
 """
@@ -66,25 +66,26 @@ season_list = ['зима', 'весна', 'лето', 'осень']
 
 
 #########Лист############################
-# season_list = [season for season in season_list for _ in range(3)]
-#
-# season_list[0], season_list[11] = season_list[11], season_list[0]
-#
-# month_number = int(input("Введите число от 1 до 12: "))
-# if (month_number > 0) and (month_number < 13):
-#     print(f'Ваш сезон - {month_number} : {season_list[month_number - 1]}')
-# else:
-#     print(f"Произошла ошибка ввода")
+season_list = [season for season in season_list for _ in range(3)]
 
-################Словарь#####################
-# season_dict = dict(zip(range(1, 13), season_list))
-#
-# month_number = int(input("Введите число от 1 до 12: "))
-# if (month_number > 0) and (month_number < 13):
-#     print(f'Ваш сезон - {month_number} : {season_dict[month_number - 1]}')
-# else:
-#     print(f"Произошла ошибка ввода")
+season_list = season_list[1:] + season_list[:1]
 
+
+month_number = int(input("Введите число от 1 до 12: "))
+if (month_number > 0) and (month_number < 13):
+    print(f'Ваш сезон - {month_number} : {season_list[month_number - 1]}')
+else:
+    print(f"Произошла ошибка ввода")
+
+###############Словарь#####################
+
+season_dict = dict(zip(range(1, 13), season_list))
+print(season_dict)
+month_number = int(input("Введите число от 1 до 12: "))
+if (month_number > 0) and (month_number < 13):
+    print(f'Ваш сезон - {month_number} : {season_dict.get(month_number )}')
+else:
+    print(f"Произошла ошибка ввода")
 
 
 """
@@ -92,11 +93,11 @@ season_list = ['зима', 'весна', 'лето', 'осень']
 слово с новой строки. Строки нужно пронумеровать. Если слово длинное, выводить только
 первые 10 букв в слове
 """
-#
-# word_list = input("Введите слова разделенные пробелом: ").split()
-#
-# for idx, word in enumerate(word_list):
-#     print(f"{idx} - {word[:10]}")
+
+word_list = input("Введите слова разделенные пробелом: ").split()
+
+for idx, word in enumerate(word_list):
+    print(f"{idx} - {word[:10]}")
 
 """
 Реализовать структуру «Рейтинг», представляющую собой набор натуральных чисел, который
@@ -110,20 +111,20 @@ season_list = ['зима', 'весна', 'лето', 'осень']
 Набор натуральных чисел можно задать сразу в коде, например, my_list = [7, 5, 3, 3, 2].
 """
 
-# ranking_list = [7, 5, 3, 3, 2]
-#
-# a = int(input("Введите натуральное число: "))
-#
-# smaller_index = 0
-#
-# for r in ranking_list:
-#     if r < a:
-#         smaller_index = ranking_list.index(r)
-#         break
-#
-# ranking_list.insert(smaller_index, a)
-#
-# print(f'Полученный список - {ranking_list}, индекс - {smaller_index}')
+ranking_list = [7, 5, 3, 3, 2]
+
+a = int(input("Введите натуральное число: "))
+
+smaller_index = 0
+
+for r in ranking_list:
+    if r < a:
+        smaller_index = ranking_list.index(r)
+        break
+
+ranking_list.insert(smaller_index, a)
+
+print(f'Полученный список - {ranking_list}, индекс - {smaller_index}')
 
 """
 *Реализовать структуру данных «Товары». Она должна представлять собой список кортежей.
