@@ -1,0 +1,4 @@
+etx
+home
+sys
+tmp
